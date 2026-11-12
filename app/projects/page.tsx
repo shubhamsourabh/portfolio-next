@@ -1,18 +1,10 @@
-const projects = [
-  {
-    name: "TaskFlow",
-    description: "Full stack task manager with React, Node, MongoDB and TypeScript.",
-    github: "https://github.com/shubhamsourabh/taskFlow",
-  },
-  {
-    name: "Portfolio",
-    description:
-      "Personal website built with Next.js, TypeScript and Tailwind, deployed on Vercel.",
-    github: "https://github.com/shubhamsourabh/portfolio-next",
-  },
-];
+import type { Project } from "../types";
 
-export default function Projects() {
+export default async function Projects() {
+  // await new Promise((r) => setTimeout(r, 2000));
+  const res = await fetch(`${process.env.BASE_URL}/api/projects`);
+  if (!res.ok) throw new Error("Failed to load projects");
+  const projects: Project[] = await res.json();
   return (
     <main>
       <h1>My Projects</h1>
