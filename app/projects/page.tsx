@@ -17,6 +17,16 @@ export default async function Projects() {
           >
             <h2 className="text-xl font-semibold mb-1">{p.name}</h2>
             <p className="text-gray-300 mb-3">{p.description}</p>
+            <ul className="mb-4 flex flex-wrap gap-2">
+              {p.stack.map((s) => (
+                <li
+                  key={s}
+                  className="rounded bg-gray-700 px-2 py-1 text-xs text-emerald-400"
+                >
+                  {s}
+                </li>
+              ))}
+            </ul>
             <a
               href={p.github}
               target="_blank"
