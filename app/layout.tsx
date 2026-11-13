@@ -35,6 +35,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   <Link href="/projects" className="text-gray-300 hover:text-emerald-400 transition-colors">
     Projects
   </Link>
+  <Link href="/contact" className="text-gray-300 hover:text-emerald-400 transition-colors">
+    Contact
+  </Link>
 </nav>
   {children}
   </body>
