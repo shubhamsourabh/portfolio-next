@@ -3,6 +3,6 @@ import { useFavorites } from "./store/favorites";
 export default function FavoriteCount(){
         const {favorites} =useFavorites();
         return (
-           <span> Favorites({favorites.length})</span>
+           <span className="text-gray-300"> Favorites({favorites.length})</span>
         )
 }
