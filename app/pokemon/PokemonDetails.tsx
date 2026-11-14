@@ -1,5 +1,5 @@
 "use client";
-
+import { useFavorites } from "../store/favorites";
 import { useQuery } from "@tanstack/react-query";
 
 type Detail = {
@@ -17,6 +17,7 @@ async function fetchDetail(name: string): Promise<Detail> {
 }
 
 export default function PokemonDetail({ name }: { name: string }) {
+    const { favorites, toggleFavorite } = useFavorites();
     const { data, isLoading, error } = useQuery({
         queryKey: ["pokemon", name],
         queryFn: () => fetchDetail(name),
@@ -34,6 +35,12 @@ export default function PokemonDetail({ name }: { name: string }) {
             <p className="text-gray-400">
                 Types: {data.types.map((t) => t.type.name).join(", ")}
             </p>
+            <button
+                onClick={() => toggleFavorite(data.name)}
+                className="mt-4 rounded bg-emerald-500 px-3 py-1 text-black"
+            >
+                {favorites.includes(data.name) ? "★ Favorited" : "☆ Favorite"}
+            </button>
         </div>
     );
 }

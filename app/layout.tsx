@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import provider from './providers'
 import Providers from "./providers";
+import FavoriteCount from "./FavoriteCount";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             <Link href="/contact" className="text-gray-300 hover:text-emerald-400 transition-colors">
               Contact
             </Link>
+            <Link href="/pokemon" className="text-gray-300 hover:text-emerald-400 transition-colors">
+            Pokémon
+            </Link>
+            <FavoriteCount/>
           </nav>
           {children}
         </Providers>
