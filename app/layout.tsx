@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import provider from './providers'
 import Providers from "./providers";
 import FavoriteCount from "./FavoriteCount";
 
@@ -43,9 +42,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               Contact
             </Link>
             <Link href="/pokemon" className="text-gray-300 hover:text-emerald-400 transition-colors">
-            Pokémon
+              Pokémon
             </Link>
-            <FavoriteCount/>
+            <Link href="/work-with-me" className="text-gray-300 hover:text-emerald-400 transition-colors">
+              WorkWithMe
+            </Link>
+            <FavoriteCount />
           </nav>
           {children}
         </Providers>
