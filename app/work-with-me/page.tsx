@@ -1,9 +1,8 @@
-import type { Project } from "../types";
+import { getProjects } from "../lib/projects";
+
 
 export default async function WorkWithMe() {
-    const res = await fetch(`${process.env.BASE_URL}/api/projects`);
-    if (!res.ok) throw new Error("Failed to load projects");
-    const projects: Project[] = await res.json();
+    const projects = await getProjects();
     return (
         <main className="max-w-2xl mx-auto p-8">
             <h1 className="text-3xl font-bold mb-2">Full stack developer</h1>
