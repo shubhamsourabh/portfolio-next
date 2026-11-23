@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import Providers from "./providers";
 import FavoriteCount from "./FavoriteCount";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </nav>
           {children}
         </Providers>
+        <Analytics />
       </body>
     </html>
   );
